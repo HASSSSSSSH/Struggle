@@ -4,6 +4,14 @@ package questions;
  * https://leetcode-cn.com/problems/reverse-linked-list/
  * https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/
  * 反转链表
+ * 反转一个单链表
+ * <p>
+ * Solution: Recursive
+ * Reference: https://leetcode-cn.com/problems/reverse-linked-list/solution/fan-zhuan-lian-biao-by-leetcode/
+ * <p>
+ * 时间复杂度: O(n), 假设 n 是列表的长度, 那么时间复杂度为 O(n)
+ * <p>
+ * 空间复杂度: O(1), 由于使用递归, 将会使用隐式栈空间, 递归深度可能会达到 n 层
  */
 public class Y2020M06D18_LC_Q206_S4 {
 
@@ -18,9 +26,6 @@ public class Y2020M06D18_LC_Q206_S4 {
         System.out.println(instance.reverseList(head));
     }
 
-    /**
-     * what???
-     */
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
