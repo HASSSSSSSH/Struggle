@@ -24,9 +24,16 @@ import java.util.List;
  * <p>
  * Reference: https://leetcode-cn.com/problems/combination-sum/solution/hui-su-suan-fa-jian-zhi-python-dai-ma-java-dai-m-2/
  * <p>
- * 时间复杂度:
+ * 时间复杂度: ??
  * <p>
- * 空间复杂度:
+ * 空间复杂度: ??
+ * <p>
+ * TAG:
+ * 候选数组不存在重复元素
+ * 候选数组元素可以重复选取
+ * 组合可以存在重复元素
+ * 解集不包含重复组合
+ * 所有数字(包括 target)都是正整数
  */
 public class Y2020M09D09_LC_Q39_S2 {
 

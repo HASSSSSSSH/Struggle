@@ -34,6 +34,14 @@ import java.util.Arrays;
  * <p>
  * 空间复杂度: ??
  * <p>
+ * TAG:
+ * 候选数组不存在重复元素
+ * 候选数组元素可以重复选取
+ * 组合可以存在重复元素
+ * 解集不包含重复组合
+ * 顺序不同的序列被视作不同的组合
+ * 所有数字(包括 target)都是正整数
+ * <p>
  * Result: Timeout
  */
 public class Y2020M09D21_LC_Q377_S1 {

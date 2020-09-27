@@ -19,6 +19,13 @@ import java.util.List;
  * 时间复杂度: https://leetcode-cn.com/problems/combinations/solution/zu-he-by-leetcode-solution/
  * <p>
  * 空间复杂度: https://leetcode-cn.com/problems/combinations/solution/zu-he-by-leetcode-solution/
+ * <p>
+ * TAG:
+ * 候选数组不存在重复元素
+ * 候选数组中的一个元素只能选取一次
+ * 组合不存在重复元素
+ * 解集不包含重复组合
+ * 所有数字都是正整数
  */
 public class Y2020M09D14_LC_Q77_S3 {
 

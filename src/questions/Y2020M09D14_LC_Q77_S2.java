@@ -18,6 +18,13 @@ import java.util.List;
  * <p>
  * 空间复杂度: ??
  * <p>
+ * TAG:
+ * 候选数组不存在重复元素
+ * 候选数组中的一个元素只能选取一次
+ * 组合不存在重复元素
+ * 解集不包含重复组合
+ * 所有数字都是正整数
+ * <p>
  * Optimization of Y2020M09D11_LC_Q77_S1
  */
 public class Y2020M09D14_LC_Q77_S2 {
