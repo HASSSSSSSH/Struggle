@@ -10,7 +10,9 @@ package questions;
  * 应当返回: 2->1->4->3->5
  * <p>
  * Solution: Iterative
+ * <p>
  * 时间复杂度: O(n)
+ * <p>
  * 空间复杂度: O(1)
  */
 public class Y2020M08D04_LC_Q24_S1 {
@@ -27,17 +29,17 @@ public class Y2020M08D04_LC_Q24_S1 {
     }
 
     public ListNode swapPairs(ListNode head) {
-        ListNode header = new ListNode(0);
+        ListNode header = new ListNode(-1);
         header.next = head;
         ListNode dummy = header;
-        while (header.next != null && header.next.next != null) {
-            ListNode temp = header.next;
-            header.next = header.next.next;
-            temp.next = header.next.next;
-            header.next.next = temp;
-            header = temp;
+        while (dummy.next != null && dummy.next.next != null) {
+            ListNode temp = dummy.next.next;
+            dummy.next.next = temp.next;
+            temp.next = dummy.next;
+            dummy.next = temp;
+            dummy = temp.next;
         }
-        return dummy.next;
+        return header.next;
     }
 
     public static class ListNode {

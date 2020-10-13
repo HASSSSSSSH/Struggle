@@ -10,9 +10,10 @@ package questions;
  * 应当返回: 2->1->4->3->5
  * <p>
  * Solution: Recursive
- * Reference: https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/liang-liang-jiao-huan-lian-biao-zhong-de-jie-di-19/
- * 时间复杂度: O(n)
- * 空间复杂度: O(n), 递归过程使用的堆栈空间
+ * <p>
+ * 时间复杂度: O(n), 其中 n 是链表的节点数量, 需要对每个节点进行更新指针的操作
+ * <p>
+ * 空间复杂度: O(n), 其中 n 是链表的节点数量, 空间复杂度主要取决于递归调用的栈空间
  */
 public class Y2020M08D04_LC_Q24_S2 {
 
