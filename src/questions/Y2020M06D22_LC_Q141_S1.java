@@ -7,6 +7,15 @@ import java.util.HashMap;
  * 给定一个链表，判断链表中是否有环。
  * 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。
  * 如果 pos 是 -1，则在该链表中没有环。
+ * <p>
+ * Solution: Hash Table
+ * <p>
+ * Reference: https://leetcode-cn.com/problems/linked-list-cycle/solution/huan-xing-lian-biao-by-leetcode-solution/
+ * <p>
+ * 时间复杂度: O(N), 其中 N 是链表中的节点数, 最坏情况下我们需要遍历每个节点一次
+ * <p>
+ * 空间复杂度: O(N), 其中 N 是链表中的节点数
+ * 主要为哈希表的开销, 最坏情况下我们需要将每个节点插入到哈希表中一次
  */
 public class Y2020M06D22_LC_Q141_S1 {
 
