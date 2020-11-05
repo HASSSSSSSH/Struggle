@@ -66,6 +66,7 @@ public class Y2020M10D23_LC_Q518_S7 {
 
     /**
      * 优化空间
+     * <p>
      * 事实上, 在 dp[i][value] 的计算过程中
      * 只参考上一行 dp[i - 1][value] 的结果
      * 因此只需要使用一维数组
@@ -84,18 +85,25 @@ public class Y2020M10D23_LC_Q518_S7 {
         // 因此只需要使用一维数组
         int[] dp = new int[amount + 1];
 
+        // 必须单独初始化 "数组的第一行"
         // 初始化数组, 此时只需考虑候选硬币数组的第一个元素 coin[0]
+        // 在状态转移方程中, dp[0] = 1 总是成立
         for (int k = 0; k * coins[0] <= amount; k++) {
             dp[k * coins[0]] = 1;
         }
 
         for (int i = 1; i < length; i++) {
-            // 不用 if (value >= coins[i]), 直接从 coins[i] 开始
-            for (int value = coins[i]; value <= amount; value++) {
-                dp[value] += dp[value - coins[i]];
 
+            // 无需 if (value >= coins[i]), 直接从 coins[i] 开始
+            for (int value = coins[i]; value <= amount; value++) {
                 // 状态转移方程
                 // dp[i][j] = dp[i][j - coin[i]] + dp[i - 1][j]
+                // 然而在一维数组中, dp[value] 一开始的值实际上就等于 "上一行 dp[i - 1][j]" 的值
+
+                // 当 dp[value - coins[i]] = 0 时
+                // 表明在硬币区间 [0, length - 1] 中选取硬币, 可以凑成金额 value - coins[i] 的组合数为 0
+                // 意味着无法凑成目标金额 value - coins[i]
+                dp[value] += dp[value - coins[i]];
 
                 // no need
                 // dp[i & 1][value] = dp[(i - 1) & 1][value];
