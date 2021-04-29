@@ -1,12 +1,20 @@
 package questions;
 
+import utils.ListNode;
+
 /**
  * https://leetcode-cn.com/problems/merge-two-sorted-lists/
+ * https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/
  * 合并两个有序链表
+ * <p>
  * 将两个升序链表合并为一个新的 升序 链表并返回
  * 新链表是通过拼接给定的两个链表的所有节点组成的
  * <p>
- * Solution: Iterative
+ * Tags: {@link questions.tags.LinkedList}, {@link questions.tags.Recursion}
+ * <p>
+ * Review: {@link questions.tags.ReviewLevel#S}
+ * <p>
+ * Solution: {@link questions.tags.Iterative}
  * <p>
  * 时间复杂度: O(n + m), 其中 n 和 m 分别为两个链表的长度
  * 因为每次循环迭代中, l1 和 l2 只有一个元素会被放进合并链表中
@@ -56,37 +64,5 @@ public class Y2020M08D07_LC_Q21_S1 {
             pre.next = l1;
         }
         return header.next;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            StringBuilder builder = new StringBuilder();
-            Y2020M08D07_LC_Q21_S1.ListNode head = this;
-            while (head != null) {
-                builder.append("node-")
-                        .append(head.hashCode())
-                        .append(": ")
-                        .append(head.val)
-                        .append(" \n");
-                head = head.next;
-            }
-            return builder.toString();
-        }
     }
 }
