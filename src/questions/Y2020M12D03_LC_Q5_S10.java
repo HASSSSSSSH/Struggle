@@ -3,24 +3,44 @@ package questions;
 /**
  * https://leetcode-cn.com/problems/longest-palindromic-substring/
  * 最长回文子串
- * 给定一个字符串 s，找到 s 中最长的回文子串。
- * 你可以假设 s 的最大长度为 1000。
+ * 给定一个字符串 s, 找到 s 中最长的回文子串
+ * 你可以假设 s 的最大长度为 1000
  * <p>
- * Solution: dynamic programming
- * Reference: https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/
+ * 实例1:
+ * 输入: "babad"
+ * 输出: "bab"
+ * 注意: "aba" 也是一个有效答案
  * <p>
- * 不同的填表方式
+ * 实例2:
+ * 输入: "babad"
+ * 输出: "bb"
+ * <p>
+ * Tags: {@link questions.tags.String}, {@link questions.tags.DynamicProgramming}
+ * <p>
+ * Review: {@link questions.tags.ReviewLevel#E}
+ * <p>
+ * Solution: {@link questions.tags.DynamicProgramming}
+ * <p>
+ * 时间复杂度: O(N^2), N 为字符串的长度
+ * <p>
+ * 空间复杂度: O(N^2), N 为字符串的长度
+ * <p>
+ * Different implementation of {@link Y2020M12D03_LC_Q5_S5}
  */
-public class Y2020M06D30_LC_Q5_S5 {
+public class Y2020M12D03_LC_Q5_S10 {
 
     public static void main(String args[]) {
+        Y2020M12D03_LC_Q5_S10 instance = new Y2020M12D03_LC_Q5_S10();
+
         // babad
-        // cbbd
-        // fffffffffffffffffffggggggggggg
+        // fffffffffffffffffffggggggggggggggggggggg
         // abzdba
-        // a
-        Y2020M06D30_LC_Q5_S5 instance = new Y2020M06D30_LC_Q5_S5();
-        System.out.println(instance.longestPalindrome("babad"));
+        // cccbbccd
+        // cbabxdaad
+        // cbabxdaadz
+        // abcdxddcba
+
+        System.out.println(instance.longestPalindrome("cccbbccd"));
     }
 
     public String longestPalindrome(String s) {
@@ -72,9 +92,9 @@ public class Y2020M06D30_LC_Q5_S5 {
         for (int i = n - 1; i >= 0; i--) {
             for (int j = i + 1; j < n; j++) {
 
-        // 5.按行[n - 1, 0]倒序填表, 第i行有(n - i - 1)个元素, 倒序填充[n - 1, i + 1]每一列的元素
-        // for (int i = n - 1; i >= 0; i--) {
-        //     for (int j = n - 1; j >= i + 1; j--) {
+                // 5.按行[n - 1, 0]倒序填表, 第i行有(n - i - 1)个元素, 倒序填充[n - 1, i + 1]每一列的元素
+                // for (int i = n - 1; i >= 0; i--) {
+                //     for (int j = n - 1; j >= i + 1; j--) {
                 // 当子串长度(j - i + 1) <= 3时, 只需判断左右两边的字符是否相等
                 if (((j - i + 1) <= 3 || arr[i + 1][j - 1]) && s.charAt(i) == s.charAt(j)) {
                     arr[i][j] = true;
