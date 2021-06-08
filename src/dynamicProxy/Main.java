@@ -33,6 +33,8 @@ public class Main {
                 IHello.class.getClassLoader(), // 传入ClassLoader
                 new Class[]{IHello.class}, // 传入要实现的接口
                 handler); // 传入处理调用方法的InvocationHandler
+
+        System.out.println(hello.getClass());
         hello.hello("Bob");
     }
 
@@ -51,6 +53,7 @@ public class Main {
         IIHello hello = new HelloDynamicProxy(handler);
 
         try {
+            System.out.println(hello.getClass());
             hello.hello("Bob");
         } catch (Throwable throwable) {
             throwable.printStackTrace();
