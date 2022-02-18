@@ -4,9 +4,9 @@ package questions;
  * https://leetcode-cn.com/problems/container-with-most-water/
  * 盛最多水的容器
  * <p>
- * 给你 n 个非负整数 a1, a2, ..., an, 每个数代表坐标中的一个点 (i, ai)
- * 在坐标内画 n 条垂直线, 垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)
- * 找出其中的两条线, 使得它们与 x 轴共同构成的容器可以容纳最多的水
+ * 给你 n 个非负整数 a1, a2, ..., an, 每个数代表坐标中的一个点 (i, ai)
+ * 在坐标内画 n 条垂直线, 垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)
+ * 找出其中的两条线, 使得它们与 x 轴共同构成的容器可以容纳最多的水
  * <p>
  * 说明: 你不能倾斜容器
  * <p>
@@ -17,7 +17,7 @@ package questions;
  * <p>
  * Tags: {@link questions.tags.Array}, {@link questions.tags.TwoPointers}
  * <p>
- * Review: {@link questions.tags.ReviewLevel#E}
+ * Review: {@link questions.tags.ReviewLevel#D}
  * <p>
  * Solution: {@link questions.tags.TwoPointers}
  * <p>
@@ -29,7 +29,7 @@ package questions;
  */
 public class Y2020M06D03_LC_Q11_S2 {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Y2020M06D03_LC_Q11_S2 instance = new Y2020M06D03_LC_Q11_S2();
 
         // new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7}
@@ -39,7 +39,7 @@ public class Y2020M06D03_LC_Q11_S2 {
 
     /**
      * 用双指针分别指向数组的左右边界, 此时数组中所有的位置都有可能作为容器的边界, 因为我们还没有进行过任何尝试
-     * 计算由当前左右边界与 x 轴共同构成的面积 area, 与当前面积的最大值 max 进行比较和更新
+     * 计算由当前左右边界与 x 轴共同构成的面积 area, 与当前面积的最大值 max 进行比较和更新
      * 之后, 我们将 对应的数字较小的那个指针 往 另一个指针 的方向移动一个位置, 表明 继续以这个指针作为容器的边界得到的面积不可能大于 area
      * 因此舍弃这个 对应的数字较小的那个指针
      * 最后重复以上过程, 直至两个指针重合, 此时的 max 就是最大面积
@@ -68,21 +68,21 @@ public class Y2020M06D03_LC_Q11_S2 {
      */
     public int maxArea(int[] height) {
         int max = 0;
-        int left = 0;
-        int right = height.length - 1;
+        int low = 0;
+        int high = height.length - 1;
 
-        while (right > left) {
-            int area = min(height[left], height[right]) * (right - left);
+        while (high > low) {
+            int area = min(height[low], height[high]) * (high - low);
             if (area > max) {
                 max = area;
             }
 
             // 移动短板
             // 如果移动的是长板, 那么由新边界得出的面积总是小于当前面积
-            if (height[left] < height[right]) {
-                left++;
+            if (height[low] < height[high]) {
+                low++;
             } else {
-                right--;
+                high--;
             }
         }
         return max;
