@@ -52,5 +52,10 @@ public class TreeUtils {
             this.left = left;
             this.right = right;
         }
+
+        @Override
+        public String toString() {
+            return getClass().getName() + "@" + Integer.toHexString(hashCode()) + ": value=" + val;
+        }
     }
 }
